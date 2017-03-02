@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solutlion Folder", "Solutlion Folder", "{5AECDE47-C2F5-4301-8219-DC9D5A17E0C9}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Folder\Notes.md = Solution Folder\Notes.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleMapsSample", "src\GoogleMapsSample.csproj", "{29D0409E-8DC7-40FA-B80A-97D88FB53B67}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29D0409E-8DC7-40FA-B80A-97D88FB53B67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29D0409E-8DC7-40FA-B80A-97D88FB53B67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29D0409E-8DC7-40FA-B80A-97D88FB53B67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29D0409E-8DC7-40FA-B80A-97D88FB53B67}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

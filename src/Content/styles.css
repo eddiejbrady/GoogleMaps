@@ -1,0 +1,210 @@
+html {
+    height: 100%
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#map {
+    height: 100%;
+}
+
+/* edit form */
+#edit-form  {
+    position: relative;
+    z-index: 1;
+    top: 0px;
+    min-width: 514px;
+    width: 32%; 
+    height: 100%;
+    /*display: none;*/
+    background-color: darkgray;
+    border: 1px solid black;
+}
+#effect { 
+    width: 100%; 
+    height: 100%; 
+    padding: 0.4em; 
+    position: relative;
+    overflow: auto;
+    /*background-color: #1af3ea;
+    border: 1px solid black;*/
+}
+
+.edit-form-content {
+    margin: 10px 0 0 0;
+    padding: 0;
+    width: 100%;
+    /*background-color: red;
+    border: 1px solid black;*/
+}
+
+.edit-form-header, .edit-form-properties {
+    margin: 1px;
+    color: #fff;
+    padding: 3px 10px;
+    cursor: pointer;
+    position: relative;
+    background-color: #165D73;
+}
+
+.edit-form-detail {
+    padding: 5px 10px;
+    background-color:#fafafa;
+    /*display: none;*/
+}
+
+/*#building-list {
+    min-height: 365px;
+}*/
+
+/* form buttons */
+.feature-edit-edit {
+    background-color: lightblue;
+}
+
+.feature-edit-ok {
+    background-color:lightgreen;
+}
+
+.feature-edit-undo {
+    background-color: lightcoral;
+}
+
+input[type="button"]:disabled {
+    background-color: lightgrey;
+}
+
+/* search bar */
+.controls {
+    margin-top: 10px;
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 32px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 300px;
+}
+
+#pac-input:focus {
+    /*border-color: #4d90fe;*/
+    border-color: #36BFF2;
+}
+
+.pac-container {
+    font-family: Roboto;
+}
+
+
+/* legend */
+#legend {
+    background: #fff;
+    color: black;
+    font-weight: bold;
+    margin: 0 10px 10px 0;
+    border: 1px solid black;
+    /*height: 3%;*/
+}
+
+#legend .policy {
+    background: #ffff00;
+    opacity: 0.5;
+    border: 1px solid black;
+}
+
+#legend .proximity {
+    background: #79CCE8;
+    opacity: 0.5;
+    border: 1px solid black;
+}
+
+#legend .risk-group {
+    background: #DD5E0E;
+    opacity: 0.5;
+    border: 1px solid black;
+}
+
+/* save - cancel bar */
+.status-bar {
+    margin: 10px 0 0 0;
+    padding: 5px 5px 5px 5px;
+    background-color: black;
+    border-radius: 5px;
+    display: none;
+}
+
+.status-bar-content {
+    text-align: center;
+    padding: 6px;
+}
+
+/* modal spinner */
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('http://i.stack.imgur.com/FhHRx.gif') 
+                no-repeat
+                50% 50%; 
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+    display: block;
+}
+
+/* Bootstrap overrides */
+table.dataTable tbody>tr.selected, table.dataTable tbody>tr>.selected {
+    background-color: #36BFF2;
+}
+
+.nav-tabs>li>a {
+  background-color: lightgray;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus{
+  background-color: #36BFF2;
+}
+
+.tab-content {
+    background-color: #36BFF2;
+    padding: 2px
+}
+
+/* row grouping header */
+tr.group, tr.group:hover {
+    background-color: #ddd !important;
+}

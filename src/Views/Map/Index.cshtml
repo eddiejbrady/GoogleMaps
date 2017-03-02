@@ -1,0 +1,314 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>UA Map</title>
+
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+
+    <link href="Content/styles.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div id="edit-form" class="pull-left">
+        <div id="effect" class="ui-widget-content ui-corner-all">
+            <div>
+                <form class="form-horizontal" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="search-value" value="123" />
+                        <div class="input-group-btn">
+                            <button id="search" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                    <h3 class="edit-form-header">Policy Info</h3>
+                    <div class="edit-form-detail">
+                        <div class="form-group row">
+                            <label for="policy-id" class="col-sm-3 control-label">Policy Id</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="policy-id" placeholder="" disabled readonly />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="policy-start-date" class="col-sm-3 control-label">Start Date</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="policy-effective-date" placeholder="" disabled readonly />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="policy-end-date" class="col-sm-3 control-label">End Date</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="policy-expiration-date" placeholder="" disabled readonly />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="edit-form-content">
+                <form class="form-horizontal">
+                    <ul class="nav nav-tabs nav-justified">
+                        <li class="active"><a id="policy-tab" data-toggle="tab" href="#policy-content">Policy</a></li>
+                        <li><a id="group-tab" data-toggle="tab" href="#group-content">Groups</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div id="policy-content" class="tab-pane fade in active">
+                            <h3 class="edit-form-header">Policy Objects</h3>
+                            <div class="edit-form-detail building-list">
+                                <table id="building-list" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Building Id</th>
+                                            <th>Address</th>
+                                            <th>&nbsp;</th>
+                                            <th>&nbsp;</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+
+                            <h3 class="edit-form-properties">Properties</h3>
+                            <div class="edit-form-detail">
+                                <div class="form-group row">
+                                    <label for="building-id" class="col-sm-4 control-label">Building Id</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="building-id" placeholder="" disabled readonly />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="building-construction-type" class="col-sm-4 control-label">Construction Type</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="building-construction-type" placeholder="" disabled readonly />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="building-pml-value" class="col-sm-4 control-label">PML Value</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="building-pml-value" placeholder="" disabled readonly />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="building-protection-class" class="col-sm-4 control-label">Protection Class</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="building-protection-class" placeholder="" disabled readonly />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="building-grade" class="col-sm-4 control-label">Grade</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="building-grade" placeholder="" disabled readonly />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="building-area" class="col-sm-4 control-label">Area</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="building-area" placeholder="" disabled readonly />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="building-stories" class="col-sm-4 control-label">Stories</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="building-stories" placeholder="" disabled readonly />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="building-address-1" class="col-sm-4 control-label">Address 1</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="building-address-1" placeholder="" disabled readonly />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="building-address-2" class="col-sm-4 control-label">Address 2</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="building-address-2" placeholder="" disabled readonly />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="building-address-3" class="col-sm-4 control-label">Address 3</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="building-address-3" placeholder="" disabled readonly />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="building-city" class="col-sm-4 control-label">City</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="building-city" placeholder="" disabled readonly />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="building-state" class="col-sm-4 control-label">State</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="building-state" placeholder="" disabled readonly />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="building-postal-code" class="col-sm-4 control-label">Postal Code</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="building-postal-code" placeholder="" disabled readonly />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="group-content" class="tab-pane fade">
+                            <h3 class="edit-form-header">Group Objects</h3>
+                            <div class="edit-form-detail group-list">
+                                <table id="group-list" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Group Id</th>
+                                            <th>PML Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @*<tr>
+                                            <td>group 1</td>
+                                            <td>5000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>group 2</td>
+                                            <td>8000</td>
+                                        </tr>*@
+                                    </tbody>
+                                </table>
+                            </div>
+                            <h3 class="edit-form-header">Group Building Objects</h3>
+                            <div class="edit-form-detail group-building-list">
+                                <table id="group-building-list" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Building Id</th>
+                                            <th>Policy Id</th>
+                                            <th>Address</th>
+                                            <th>PML Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @*<tr>
+                                            <td>building 1</td>
+                                            <td>1234</td>
+                                            <td>123 St.</td>
+                                            <td>100</td>
+                                        </tr>
+                                        <tr>
+                                            <td>building 2</td>
+                                            <td>9999</td>
+                                            <td>123 St.</td>
+                                            <td>100</td>
+                                        </tr>
+                                        <tr>
+                                            <td>building 3</td>
+                                            <td>8888</td>
+                                            <td>123 St.</td>
+                                            <td>100</td>
+                                        </tr>
+                                        <tr>
+                                            <td>building 4</td>
+                                            <td>1234</td>
+                                            <td>123 St.</td>
+                                            <td>100</td>
+                                        </tr>
+                                        <tr>
+                                            <td>building 5</td>
+                                            <td>9999</td>
+                                            <td>123 St.</td>
+                                            <td>100</td>
+                                        </tr>
+                                        <tr>
+                                            <td>building 6</td>
+                                            <td>8888</td>
+                                            <td>123 St.</td>
+                                            <td>100</td>
+                                        </tr>
+                                        <tr>
+                                            <td>building 7</td>
+                                            <td>1234</td>
+                                            <td>123 St.</td>
+                                            <td>100</td>
+                                        </tr>
+                                        <tr>
+                                            <td>building 8</td>
+                                            <td>9999</td>
+                                            <td>123 St.</td>
+                                            <td>100</td>
+                                        </tr>
+                                        <tr>
+                                            <td>building 9</td>
+                                            <td>8888</td>
+                                            <td>123 St.</td>
+                                            <td>100</td>
+                                        </tr>
+                                        <tr>
+                                            <td>building 10</td>
+                                            <td>3333</td>
+                                            <td>123 St.</td>
+                                            <td>100</td>
+                                        </tr>
+                                        <tr>
+                                            <td>building 11</td>
+                                            <td>9999</td>
+                                            <td>123 St.</td>
+                                            <td>100</td>
+                                        </tr>*@
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="map">
+    </div>
+
+    <div id="ctl-save-cancel" class="status-bar">
+        <div>
+            <button id="save-map" class="btn btn-primary status-bar-content">Save</button>
+            <button id="cancel-map" class="btn btn-secondary status-bar-content">Cancel</button>
+        </div>
+    </div>
+
+    <div id="legend" class="row">
+        <span class="col-xs-4 policy">Policy</span>
+        <span class="col-xs-4 proximity">Proximity</span>
+        <span class="col-xs-4 risk-group">Risk&nbsp;Group</span>
+    </div>
+
+    <div class="modal">
+    </div>
+
+    <div class="message-box" title="dialog">
+        <p></p>
+    </div>
+
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box" />
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/select/1.2.0/js/dataTables.select.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.10.12/api/page.jumpToData().js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/scroller/1.4.2/js/dataTables.scroller.min.js"></script>
+
+    @*<script src="https://maps.googleapis.com/maps/api/js?v=3.25&key=AIzaSyCx776AAnalljhDeB-MoKJGAClfZbJBXIs&libraries=places,geometry"></script>*@
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCx776AAnalljhDeB-MoKJGAClfZbJBXIs&libraries=places,geometry"></script>
+    <script src="Scripts/map.js"></script>
+
+</body>
+</html>
+
+
+
